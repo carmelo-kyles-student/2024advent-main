@@ -3,82 +3,86 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-class Program
+public static class Program
 {
-    static void Main()
+    public static void Main(string[] args)
     {
-        // File path
+        // File path to input data
         string filePath = "C:\\Users\\cakye3c\\OneDrive\\2024advent-main\\inp.txt";
 
-        // Lists to store separated values
-        List<int> list1 = new List<int>();
-        List<int> list2 = new List<int>();
+        // List to store reports as arrays
+        List<int[]> rows = new List<int[]>();
 
-        // Read file line by line
+        // Read the file and split each line into an array of integers
         foreach (var line in File.ReadLines(filePath))
         {
-            // Split each line into two parts
-            string[] parts = line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+            // Split the line into integers and add to the list of rows
+            int[] row = Array.ConvertAll(line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries), int.Parse);
+            rows.Add(row);
+        }
 
-            // Add to respective lists
-            if (parts.Length == 2)
+        // Convert the list of rows into a 2D array
+        int[][] array2D = rows.ToArray();
+
+        // Display the 2D array (optional for debugging)
+        Console.WriteLine("2D Array:");
+        foreach (var row in array2D)
+        {
+            Console.WriteLine(string.Join(" ", row));
+        }
+
+        // Call the CheckForSafe method and display the result
+        int safeCount = CheckForSafe(array2D);
+        Console.WriteLine("Number of safe reports: " + safeCount);
+    }
+
+    // Method to check for safe reports
+    public static int CheckForSafe(int[][] rows)
+    {
+        int safeCount = 0;
+
+        // Loop through each row
+        foreach (var row in rows)
+        {
+            // Check if the current row is safe
+            if (IsRowSafe(row))
             {
-                list1.Add(int.Parse(parts[0]));
-                list2.Add(int.Parse(parts[1]));
+                safeCount++;  // Increment safe count if the row is safe
             }
         }
 
-        Console.WriteLine("List 1 Sorted:");
-        list1.Sort();
-        Console.WriteLine(string.Join(", ", list1));
-
-        Console.WriteLine("\nList 2 Sorted:");
-        list2.Sort();
-        Console.WriteLine(string.Join(", ", list2));
-
-        // Call checkIfLarger and display result
-        int res = CheckIfLarger(list1, list2);
-        Console.WriteLine("\nCheckIfLarger Result: " + res);
-
-        // Calculate and display the similarity score
-        int similarityScore = CalculateSimilarityScore(list1, list2);
-        Console.WriteLine("\nSimilarity Score: " + similarityScore);
+        return safeCount;  // Return the total number of safe rows
     }
 
-    // Function to calculate difference between lists and return sum
-    private static int CheckIfLarger(List<int> l1, List<int> l2)
+    // Method to check if a row is safe
+    public static bool IsRowSafe(int[] row)
     {
-        int sum = 0;
-        for (int i = 0; i < Math.Min(l1.Count, l2.Count); i++) // Ensure we don't exceed bounds
-        {
-            sum += Math.Abs(l1[i] - l2[i]); // Add absolute difference
-        }
-        return sum;
-    }
+        bool isIncreasing = true;
+        bool isDecreasing = true;
 
-    // Function to calculate the similarity score
-    private static int CalculateSimilarityScore(List<int> list1, List<int> list2)
-    {
-        // Create a dictionary to count occurrences in list2
-        Dictionary<int, int> countMap = new Dictionary<int, int>();
-        foreach (int num in list2)
+        // Loop through the row and check each pair of adjacent numbers
+        for (int i = 0; i < row.Length - 1; i++)
         {
-            if (countMap.ContainsKey(num))
-                countMap[num]++;
-            else
-                countMap[num] = 1;
-        }
+            int diff = row[i + 1] - row[i];
 
-        // Calculate the similarity score
-        int similarityScore = 0;
-        foreach (int num in list1)
-        {
-            if (countMap.ContainsKey(num))
+            // Check if the difference is within the acceptable range (between 1 and 3, inclusive)
+            if (Math.Abs(diff) < 1 || Math.Abs(diff) > 3)
             {
-                similarityScore += num * countMap[num];
+                return false;  // Unsafe if the difference is not between 1 and 3
+            }
+
+            // Check if the row is not strictly increasing or decreasing
+            if (diff > 0)
+            {
+                isDecreasing = false;  // If increasing, mark as not decreasing
+            }
+            if (diff < 0)
+            {
+                isIncreasing = false;  // If decreasing, mark as not increasing
             }
         }
 
-        return similarityScore;
+        // A row is safe if it's either strictly increasing or strictly decreasing
+        return isIncreasing || isDecreasing;
     }
 }
