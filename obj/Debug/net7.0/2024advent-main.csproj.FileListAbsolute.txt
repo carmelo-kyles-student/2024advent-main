@@ -1,0 +1,15 @@
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\bin\Debug\net7.0\2024advent-main.exe
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\bin\Debug\net7.0\2024advent-main.deps.json
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\bin\Debug\net7.0\2024advent-main.runtimeconfig.json
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\bin\Debug\net7.0\2024advent-main.dll
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\bin\Debug\net7.0\2024advent-main.pdb
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\obj\Debug\net7.0\2024advent-main.csproj.AssemblyReference.cache
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\obj\Debug\net7.0\2024advent-main.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\obj\Debug\net7.0\2024advent-main.AssemblyInfoInputs.cache
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\obj\Debug\net7.0\2024advent-main.AssemblyInfo.cs
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\obj\Debug\net7.0\2024advent-main.csproj.CoreCompileInputs.cache
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\obj\Debug\net7.0\2024advent-main.dll
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\obj\Debug\net7.0\refint\2024advent-main.dll
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\obj\Debug\net7.0\2024advent-main.pdb
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\obj\Debug\net7.0\2024advent-main.genruntimeconfig.cache
+C:\Users\cakye3c\Downloads\2024advent-main\2024advent-main\obj\Debug\net7.0\ref\2024advent-main.dll
