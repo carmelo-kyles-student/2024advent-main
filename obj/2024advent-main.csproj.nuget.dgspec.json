@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cakye3c\\Downloads\\2024advent-main\\2024advent-main\\2024advent-main.csproj": {}
+    "C:\\Users\\cakye3c\\OneDrive\\2024advent-main\\2024advent-main.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cakye3c\\Downloads\\2024advent-main\\2024advent-main\\2024advent-main.csproj": {
+    "C:\\Users\\cakye3c\\OneDrive\\2024advent-main\\2024advent-main.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cakye3c\\Downloads\\2024advent-main\\2024advent-main\\2024advent-main.csproj",
+        "projectUniqueName": "C:\\Users\\cakye3c\\OneDrive\\2024advent-main\\2024advent-main.csproj",
         "projectName": "2024advent-main",
-        "projectPath": "C:\\Users\\cakye3c\\Downloads\\2024advent-main\\2024advent-main\\2024advent-main.csproj",
+        "projectPath": "C:\\Users\\cakye3c\\OneDrive\\2024advent-main\\2024advent-main.csproj",
         "packagesPath": "C:\\Users\\cakye3c\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cakye3c\\Downloads\\2024advent-main\\2024advent-main\\obj\\",
+        "outputPath": "C:\\Users\\cakye3c\\OneDrive\\2024advent-main\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
