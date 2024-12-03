@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 class Program
 {
     static void Main()
     {
         // File path
-        string filePath = "C:\\Users\\cakye3c\\OneDrive\\2024advent-main\\inp.txt";
+        string filePath = "inp.txt";
 
         // Lists to store separated values
         List<int> list1 = new List<int>();
@@ -28,35 +27,33 @@ class Program
             }
         }
 
-        Console.WriteLine("List 1 Sorted:");
+        // Sort both lists
         list1.Sort();
-        Console.WriteLine(string.Join(", ", list1));
-
-        Console.WriteLine("\nList 2 Sorted:");
         list2.Sort();
-        Console.WriteLine(string.Join(", ", list2));
 
-        // Call checkIfLarger and display result
-        int res = CheckIfLarger(list1, list2);
-        Console.WriteLine("\nCheckIfLarger Result: " + res);
+        // Calculate and print the total distance (Part 1)
+        int totalDistance = CalculateTotalDistance(list1, list2);
+        Console.WriteLine("Part 1 - Total Distance: " + totalDistance);
 
-        // Calculate and display the similarity score
+        // Calculate and print the similarity score (Part 2)
         int similarityScore = CalculateSimilarityScore(list1, list2);
-        Console.WriteLine("\nSimilarity Score: " + similarityScore);
+        Console.WriteLine("Part 2 - Similarity Score: " + similarityScore);
     }
 
-    // Function to calculate difference between lists and return sum
-    private static int CheckIfLarger(List<int> l1, List<int> l2)
+    // Function to calculate the total distance between two sorted lists (Part 1)
+    private static int CalculateTotalDistance(List<int> list1, List<int> list2)
     {
-        int sum = 0;
-        for (int i = 0; i < Math.Min(l1.Count, l2.Count); i++) // Ensure we don't exceed bounds
+        int totalDistance = 0;
+
+        for (int i = 0; i < Math.Min(list1.Count, list2.Count); i++)
         {
-            sum += Math.Abs(l1[i] - l2[i]); // Add absolute difference
+            totalDistance += Math.Abs(list1[i] - list2[i]);
         }
-        return sum;
+
+        return totalDistance;
     }
 
-    // Function to calculate the similarity score
+    // Function to calculate the similarity score (Part 2)
     private static int CalculateSimilarityScore(List<int> list1, List<int> list2)
     {
         // Create a dictionary to count occurrences in list2
