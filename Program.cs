@@ -8,7 +8,7 @@ public static class Program
     public static void Main(string[] args)
     {
         // File path to input data
-        string filePath = "C:\\Users\\cakye3c\\OneDrive\\2024advent-main\\inp.txt";
+        string filePath = "inp.txt";
 
         // List to store reports as arrays
         List<int[]> rows = new List<int[]>();
@@ -16,7 +16,6 @@ public static class Program
         // Read the file and split each line into an array of integers
         foreach (var line in File.ReadLines(filePath))
         {
-            // Split the line into integers and add to the list of rows
             int[] row = Array.ConvertAll(line.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries), int.Parse);
             rows.Add(row);
         }
@@ -31,9 +30,13 @@ public static class Program
             Console.WriteLine(string.Join(" ", row));
         }
 
-        // Call the CheckForSafe method and display the result
-        int safeCount = CheckForSafe(array2D);
-        Console.WriteLine("Number of safe reports: " + safeCount);
+        // Call the CheckForSafe method for Part 1
+        int safeCountPart1 = CheckForSafe(array2D);
+        Console.WriteLine("Part 1: Number of safe reports: " + safeCountPart1);
+
+        // Call the CheckForSafeWithDampener method for Part 2
+        int safeCountPart2 = CheckForSafeWithDampener(array2D);
+        Console.WriteLine("Part 2: Number of safe reports with Problem Dampener: " + safeCountPart2);
     }
 
     // Method to check for safe reports
@@ -41,17 +44,46 @@ public static class Program
     {
         int safeCount = 0;
 
-        // Loop through each row
         foreach (var row in rows)
         {
-            // Check if the current row is safe
             if (IsRowSafe(row))
             {
-                safeCount++;  // Increment safe count if the row is safe
+                safeCount++;
             }
         }
 
-        return safeCount;  // Return the total number of safe rows
+        return safeCount;
+    }
+
+    // Method to check for safe reports with the Problem Dampener
+    public static int CheckForSafeWithDampener(int[][] rows)
+    {
+        int safeCount = 0;
+
+        foreach (var row in rows)
+        {
+            if (IsRowSafe(row))
+            {
+                safeCount++;
+            }
+            else
+            {
+                for (int i = 0; i < row.Length; i++)
+                {
+                    // Create a new array without the level at index `i`
+                    int[] modifiedRow = row.Where((_, index) => index != i).ToArray();
+
+                    // Check if the modified row is safe
+                    if (IsRowSafe(modifiedRow))
+                    {
+                        safeCount++;
+                        break; // Stop checking further if already safe
+                    }
+                }
+            }
+        }
+
+        return safeCount;
     }
 
     // Method to check if a row is safe
@@ -60,29 +92,25 @@ public static class Program
         bool isIncreasing = true;
         bool isDecreasing = true;
 
-        // Loop through the row and check each pair of adjacent numbers
         for (int i = 0; i < row.Length - 1; i++)
         {
             int diff = row[i + 1] - row[i];
 
-            // Check if the difference is within the acceptable range (between 1 and 3, inclusive)
             if (Math.Abs(diff) < 1 || Math.Abs(diff) > 3)
             {
-                return false;  // Unsafe if the difference is not between 1 and 3
+                return false; // Unsafe if difference is not between 1 and 3
             }
 
-            // Check if the row is not strictly increasing or decreasing
             if (diff > 0)
             {
-                isDecreasing = false;  // If increasing, mark as not decreasing
+                isDecreasing = false;
             }
             if (diff < 0)
             {
-                isIncreasing = false;  // If decreasing, mark as not increasing
+                isIncreasing = false;
             }
         }
 
-        // A row is safe if it's either strictly increasing or strictly decreasing
         return isIncreasing || isDecreasing;
     }
 }
