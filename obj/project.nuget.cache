@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Bi6rO9nVnrKl/rLZUaCT39IL7Z35YCpGn+UDzH+a1iavH4gMMAwxc/GmI/6LRh/xDiynjNvEDzmFBaNNg20hjw==",
+  "dgSpecHash": "Ptm6xq7OAQM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\cakye3c\\OneDrive\\2024advent-main\\2024advent-main.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\whydo\\Documents\\advent2024\\2024advent-main\\2024advent-main.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\whydo\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\whydo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\whydo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\whydo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }
